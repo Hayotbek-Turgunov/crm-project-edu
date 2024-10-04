@@ -1,10 +1,21 @@
 import styled from "styled-components";
+import arrow from "../../assets/icons/rightArrow.svg?react";
+
+const Arrow = styled(arrow)`
+  display: flex;
+  margin-left: auto;
+  transform: ${({ active }) => active && "rotate(90deg)"};
+  transition: all 0.1s;
+`;
 
 const Container = styled.div`
   display: flex;
 `;
 
 const Side = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 280px;
   max-width: 280px;
   min-width: 280px;
@@ -29,4 +40,120 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 
-export { Container, Side, Body, Wrapper };
+const Logo = styled.div`
+  position: sticky;
+  top: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: dodgerblue;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(222, 225, 227, 1);
+  cursor: pointer;
+  z-index: 999;
+  background-color: white;
+`;
+
+const LogOut = styled(Logo)`
+  border-top: 1px solid rgba(222, 225, 227, 1);
+  border-bottom: 0;
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  z-index: 999;
+  background-color: white;
+`;
+
+//Profile
+const ProfileContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 23px 24px 32px 24px;
+`;
+
+ProfileContainer.Image = styled.img`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 16px;
+`;
+ProfileContainer.Name = styled.div`
+  width: 168px;
+  font-weight: 600;
+  size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--primaryColor);
+`;
+ProfileContainer.Email = styled.div`
+  width: 168px;
+  font-weight: 500;
+  size: 12px;
+  line-height: 20px;
+  color: var(--secondaryColor);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+//Menu
+
+const Menu = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 24px; */
+`;
+
+const MenuItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  &:hover {
+    background-color: rgba(248, 250, 252, 1);
+    cursor: pointer;
+  }
+`;
+
+MenuItem.Title = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px 24px;
+
+  &:hover {
+    color: var(--activeColor);
+    & path {
+      fill: var(--activeColor);
+    }
+  }
+
+  .icon {
+    margin-right: 16px;
+  }
+`;
+
+const ChildWrapper = styled.div`
+  margin-left: 35px;
+  height: ${({ active }) => (active ? "auto" : "0px")};
+  overflow: hidden;
+`;
+
+export {
+  Container,
+  Side,
+  Body,
+  Wrapper,
+  Logo,
+  LogOut,
+  ProfileContainer,
+  Menu,
+  MenuItem,
+  Arrow,
+  ChildWrapper,
+};

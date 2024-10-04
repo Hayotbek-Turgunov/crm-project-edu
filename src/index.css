@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --primaryColor: rgba(37, 62, 95, 1);
+  --secondaryColor: rgba(146, 159, 175, 1);
+  --activeColor: rgba(24, 144, 255, 1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +13,6 @@
 }
 
 body {
-  background-color: rgba(250, 250, 250, 0);
+  font-family: "Montserrat";
+  background-color: rgba(250, 250, 250, 1);
 }
