@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import arrow from "../../assets/icons/rightArrow.svg?react";
+import exitIcon from "../../assets/icons/exit.svg?react";
+import { NavLink } from "react-router-dom";
 
 const Arrow = styled(arrow)`
   display: flex;
   margin-left: auto;
-  transform: ${({ active }) => active && "rotate(90deg)"};
+  transform: ${({ active }) => active === "true" && "rotate(90deg)"};
   transition: all 0.1s;
 `;
 
@@ -55,6 +57,8 @@ const Logo = styled.div`
 `;
 
 const LogOut = styled(Logo)`
+  display: flex;
+  align-items: center;
   border-top: 1px solid rgba(222, 225, 227, 1);
   border-bottom: 0;
   position: sticky;
@@ -107,7 +111,9 @@ const Menu = styled.div`
   /* padding: 0 24px; */
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled(NavLink)`
+  text-decoration: none;
+  color: var(--primaryColor);
   display: flex;
   align-items: center;
   padding-right: 24px;
@@ -115,6 +121,11 @@ const MenuItem = styled.div`
     background-color: rgba(248, 250, 252, 1);
     cursor: pointer;
   }
+
+  color: ${({ active }) =>
+    active === "true" ? "var(--activeColor)" : "var(--primaryColor)"};
+  background-color: ${({ active }) =>
+    active === "true" ? "rgba(248, 250, 252, 1)" : "inherit"};
 `;
 
 MenuItem.Title = styled.div`
@@ -133,6 +144,10 @@ MenuItem.Title = styled.div`
     }
   }
 
+  & path {
+    fill: ${({ active }) => active === "true" && "var(--primaryColor)"};
+  }
+
   .icon {
     margin-right: 16px;
   }
@@ -140,8 +155,14 @@ MenuItem.Title = styled.div`
 
 const ChildWrapper = styled.div`
   margin-left: 35px;
-  height: ${({ active }) => (active ? "auto" : "0px")};
+  height: ${({ active }) => (active === "true" ? "auto" : "0px")};
   overflow: hidden;
+`;
+
+// logout
+
+const ExitIcon = styled(exitIcon)`
+  margin-right: 16px;
 `;
 
 export {
@@ -156,4 +177,5 @@ export {
   MenuItem,
   Arrow,
   ChildWrapper,
+  ExitIcon,
 };
