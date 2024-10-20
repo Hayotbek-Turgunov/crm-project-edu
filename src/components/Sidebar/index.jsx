@@ -54,7 +54,7 @@ export const Sidebar = () => {
   return (
     <Container>
       <Side>
-        <Logo onClick={onClickLogo}>Webbrain CRM</Logo>
+        <Logo onClick={onClickLogo}>Hayot CRM</Logo>
         <Profile />
         <Menu>
           {sidebar.map((parent) => {
