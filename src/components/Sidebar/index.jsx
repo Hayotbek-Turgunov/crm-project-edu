@@ -1,19 +1,18 @@
-/* eslint-disable react/jsx-key */
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
-  Container,
-  Side,
+  Arrow,
   Body,
-  Wrapper,
-  Logo,
+  ChildWrapper,
+  Container,
+  ExitIcon,
   LogOut,
+  Logo,
   Menu,
   MenuItem,
-  Arrow,
-  ChildWrapper,
-  ExitIcon,
+  Side,
+  Wrapper,
 } from "./style";
-import { Navbar } from "../Navbar";
+import Navbar from "../Navbar";
 import { Profile } from "./profile";
 import sidebar from "../../utils/sidebar";
 import React, { useEffect, useState } from "react";
@@ -34,41 +33,39 @@ export const Sidebar = () => {
   const onClickLogo = () => {
     navigate("/");
   };
-
   const onLogOut = () => {
-    navigate("/");
+    navigate("/login");
   };
-  const onclickParent = ({ id, path, children }, e) => {
+
+  const onClickParent = ({ id, children, path }, e) => {
     if (open?.includes(id)) {
-      let data = open.filter((item) => item !== id);
+      let data = open.filter((val) => val !== id);
       localStorage.setItem("open", JSON.stringify(data));
       setOpen(data);
     } else {
       localStorage.setItem("open", JSON.stringify([...open, id]));
       setOpen([...open, id]);
     }
-
     if (!children) {
       e.preventDefault();
       navigate(path);
     }
   };
-
   return (
     <Container>
       <Side>
-        <Logo onClick={onClickLogo}>CRM</Logo>
+        <Logo onClick={onClickLogo}>Webbrain CRM</Logo>
         <Profile />
-
         <Menu>
           {sidebar.map((parent) => {
-            const { icon: Icon } = parent;
             const active = open.includes(parent.id);
+            const { icon: Icon } = parent;
             const activePath = location.pathname?.includes(parent.path);
-            return (
+
+            return !parent.hidden ? (
               <React.Fragment key={parent.id}>
                 <MenuItem
-                  onClick={(e) => onclickParent(parent, e)}
+                  onClick={(e) => onClickParent(parent, e)}
                   active={activePath.toString()}
                 >
                   <MenuItem.Title active={activePath.toString()}>
@@ -78,7 +75,6 @@ export const Sidebar = () => {
                     <Arrow active={active.toString()} />
                   )}
                 </MenuItem>
-
                 <ChildWrapper active={active.toString()}>
                   {parent?.children?.map((child) => {
                     return (
@@ -87,15 +83,16 @@ export const Sidebar = () => {
                         to={child.path}
                         active={(location.pathname === child.path).toString()}
                       >
-                        <MenuItem.Title>{child.title}</MenuItem.Title>
+                        <MenuItem.Title>{child?.title}</MenuItem.Title>
                       </MenuItem>
                     );
                   })}
                 </ChildWrapper>
               </React.Fragment>
-            );
+            ) : null;
           })}
         </Menu>
+
         <LogOut onClick={onLogOut}>
           <ExitIcon /> Chiqish
         </LogOut>
