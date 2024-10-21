@@ -54,7 +54,7 @@ export const Sidebar = () => {
   return (
     <Container>
       <Side>
-        <Logo onClick={onClickLogo}>Hayot CRM</Logo>
+        <Logo onClick={onClickLogo}>CRM</Logo>
         <Profile />
         <Menu>
           {sidebar.map((parent) => {

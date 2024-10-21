@@ -6,8 +6,8 @@ export const Profile = () => {
     <ProfileContainer>
       <ProfileContainer.Image src={noImg} />
       <div>
-        <ProfileContainer.Name>Sardorbek Muhtorov</ProfileContainer.Name>
-        <ProfileContainer.Email>sardor.edu@gmail.com</ProfileContainer.Email>
+        <ProfileContainer.Name>Turgunov Hayotbek</ProfileContainer.Name>
+        <ProfileContainer.Email>Hayotbek.edu@gmail.com</ProfileContainer.Email>
       </div>
     </ProfileContainer>
   );

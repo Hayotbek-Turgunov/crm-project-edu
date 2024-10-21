@@ -12,6 +12,7 @@ export const Navbar = () => {
         height={40}
         borderRadius={8}
         iconLeft={<SearchIcon />}
+        placeholder={"Search"}
       />
       <Section>
         <Time />

@@ -33,6 +33,9 @@ const Side = styled.div`
 
 const Body = styled.div`
   flex: 1;
+  overflow: hidden;
+  height: 100vh;
+  overflow-y: scroll;
   /* border: 2px solid blue; */
 `;
 
