@@ -106,4 +106,16 @@ export const SubCard = styled(Card)`
   border: 1px solid #f0f0f0;
 `;
 
+export const FooterWrapper = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+FooterWrapper.Email = styled("div")`
+  flex: 2;
+`;
+FooterWrapper.Moliya = styled("div")`
+  flex: 1;
+`;
+
 export { Container, Wrapper, Card };

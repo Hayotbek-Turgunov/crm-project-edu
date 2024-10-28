@@ -2,8 +2,8 @@ import styled from "styled-components";
 import getValue from "../../../hook/getStyleValue";
 
 const Container = styled.div`
-  display: inherit;
-  align-items: inherit;
+  display: flex;
+  align-items: center;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 500;
@@ -20,4 +20,23 @@ const Container = styled.div`
   padding-left: ${({ pl }) => getValue(pl)};
 `;
 
-export { Container };
+const Counter = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  width: 28px;
+  height: 28px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 16px;
+  opacity: 0px;
+  color: #ffffff;
+  background-color: #1890ff;
+  margin-left: 8px;
+`;
+
+export { Container, Counter };
