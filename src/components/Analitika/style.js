@@ -26,7 +26,9 @@ const getColor = (title) => {
   }
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  border-radius: 8px;
+`;
 const Wrapper = styled.div`
   display: flex;
   gap: ${({ gap }) => getValue(gap, "16px")};
@@ -96,6 +98,12 @@ export const Arrow = styled(arrowUp)`
   height: 24px;
   margin-right: 8px;
   font-size: 13px;
+`;
+
+export const SubCard = styled(Card)`
+  padding-bottom: 24px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
 `;
 
 export { Container, Wrapper, Card };
