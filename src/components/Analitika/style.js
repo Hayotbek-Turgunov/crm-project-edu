@@ -26,23 +26,25 @@ const getColor = (title) => {
   }
 };
 
-const Container = styled.div`
+export const Container = styled.div`
+  padding: 24px;
   border-radius: 8px;
 `;
-const Wrapper = styled.div`
+
+export const Wrapper = styled.div`
   display: flex;
   gap: ${({ gap }) => getValue(gap, "16px")};
   width: 100%;
 `;
-
-const Card = styled.div`
-  flex-direction: column;
+export const Card = styled.div`
   display: flex;
+  flex-direction: column;
   flex: 1;
+  /* border: 1px solid red; */
   padding: 24px;
   padding-bottom: 0;
-  background-color: ${({ title }) => getColor(title)?.ternary};
   gap: ${({ gap }) => getValue(gap, "16px")};
+  background-color: ${({ title }) => getColor(title)?.ternary};
 `;
 
 export const Section = styled(Wrapper)`
@@ -56,6 +58,7 @@ export const Section = styled(Wrapper)`
     border-radius: 6px;
     padding: 8px;
     background-color: ${({ title }) => getColor(title)?.primary};
+
     margin-right: 16px;
     & path {
       fill: white;
@@ -65,6 +68,7 @@ export const Section = styled(Wrapper)`
     margin-right: 16px;
   }
 `;
+
 export const Plus = styled.div`
   &::before {
     display: flex;
@@ -81,6 +85,7 @@ export const Plus = styled.div`
     font-weight: 600;
     font-size: 32px;
     background-color: ${({ title }) => getColor(title)?.secondary};
+
     border-radius: 50%;
   }
   &:active {
@@ -96,19 +101,19 @@ export const Counter = styled(Title)`
 export const Arrow = styled(arrowUp)`
   width: 24px;
   height: 24px;
-  margin-right: 8px;
-  font-size: 13px;
+  margin-right: 13px;
 `;
 
 export const SubCard = styled(Card)`
   padding-bottom: 24px;
   border-radius: 8px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid rgba(240, 240, 240, 1);
 `;
 
 export const FooterWrapper = styled.div`
   display: flex;
   flex: 1;
+  gap: 17px;
 `;
 
 FooterWrapper.Email = styled("div")`
@@ -117,5 +122,3 @@ FooterWrapper.Email = styled("div")`
 FooterWrapper.Moliya = styled("div")`
   flex: 1;
 `;
-
-export { Container, Wrapper, Card };

@@ -83,7 +83,7 @@ export const Analitika = () => {
         </FooterWrapper.Email>
 
         <FooterWrapper.Moliya>
-          <SupTitle mt={24} mb={16}>
+          <SupTitle mt={24} mb={20}>
             Moliya
           </SupTitle>
           <Moliya />
