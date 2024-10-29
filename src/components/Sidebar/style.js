@@ -12,8 +12,8 @@ const Arrow = styled(arrow)`
 
 const Container = styled.div`
   display: flex;
+  overflow: hidden;
 `;
-
 const Side = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ const Side = styled.div`
   max-width: 280px;
   min-width: 280px;
   background-color: white;
-
+  /* border: 2px solid red; */
   height: 100vh;
   overflow: hidden;
   overflow-y: scroll;
@@ -30,12 +30,12 @@ const Side = styled.div`
     width: 0;
   }
 `;
-
 const Body = styled.div`
   flex: 1;
   overflow: hidden;
-  height: 100vh;
   overflow-y: scroll;
+  height: 100vh;
+  min-width: calc(1440px - 280px);
   /* border: 2px solid blue; */
 `;
 
